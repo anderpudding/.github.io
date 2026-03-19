@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My BucketList - Terminal</title>
+    <style>
+        :root {
+            --bg-color: #24283B;
+            --text-color: #C0CAF5;
+            --header-color: #FF9E64;
+            --sub-header-color: #565F89;
+            --st-color:#BB9AF7;
+            --prompt-user: #7DCFFF;
+            --prompt-at: #b2d3d8;
+            --prompt-host: #9AA5CE;
+            --prompt-path: #F7768E;
+            --prompt-arrow: #565F89;
+            --link-color: #9ECE6A;
+            --font-stack: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            --font-header: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            margin: 0;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: var(--sub-header-color);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .prompt {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .user { color: var(--prompt-user); }
+        .at { color: var(--prompt-at); }
+        .host { color: var(--prompt-host); }
+        .path { color: var(--prompt-path); }
+        .arrow { color: var(--prompt-arrow); margin: 0 5px; }
+        .command { color: var(--st-color); }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            border-bottom: 1px dashed var(--sub-header-color);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+            margin-top: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .link-item::before {
+            content: "-> ";
+            color: var(--sub-header-color);
+            margin-right: 10px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link-color);
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        strong {
+            color: var(--st-color); font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        li::before {
+            content: "* ";
+            margin-right: 8px;
+        }
+
+        .category-title {
+            color: var(--link-color);
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .puzzle-box {
+            background-color: var(--puzzle-bg);
+            border: 1px solid var(--puzzle-border);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        .puzzle-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .puzzle-content {
+            font-size: 0.95rem;
+            color: var(--sub-header-color);
+        }
+
+        .contact-link {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .guest-prompt {
+            margin-top: 40px;
+            color: #a3be8c;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: var(--text-color);
+            vertical-align: middle;
+            margin-left: 5px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--puzzle-border);
+            color: var(--sub-header-color);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My BucketList</h1>
+            <div class="subtitle">Life Goals & Dreams</div>
+        </header>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~</span><span class="arrow">→</span> <span class="command">cat bucketlist.md</span>
+            </div>
+            <div class="content">
+                <p class="category-title">🎯 High Priority / Most Meaningful Goals</p>
+                <ul>
+                    <li>Bike around UBC</li>
+                    <li>Save $10,000 in my chequing account before the end of 2nd year (Sept–June)</li>
+                    <li>Complete a marathon</li>
+                    <li>Go skydiving</li>
+                    <li>Achieve a handstand push-up</li>
+                    <li>Attend a concert (e.g., Bethel Music)</li>
+                    <li>Attend a local Canadian festival (any kind)</li>
+                    <li>Get personal training (PT)</li>
+                    <li>Work out while following a proper diet</li>
+                    <li>Learn breakdancing</li>
+                    <li>Learn how to do a backflip</li>
+                    <li>Master at least one programming language (Python, C, Java)</li>
+                    <li>Learn magic tricks</li>
+                    <li>Learn the moonwalk dance</li>
+                    <li>Relearn guitar properly</li>
+                    <li>Continue studying Japanese</li>
+                    <li>Build an AI program</li>
+                    <li>Watch a baseball game live</li>
+                    <li>Watch the World Cup live</li>
+                    <li>Study stock investing</li>
+                    <li>Donate blood</li>
+                    <li>Take vocal training lessons</li>
+                    <li>Live with a friend</li>
+                    <li>Get an autograph from a celebrity</li>
+                    <li>Travel alone</li>
+                    <li>Have chicken & beer (chimaek) by the Han River</li>
+                    <li>Learn photo editing (to a resume-worthy level)</li>
+                    <li>Learn video editing (to a resume-worthy level)</li>
+                    <li>Volunteer in my field of study (e.g., open projects)</li>
+                    <li>Volunteer consistently</li>
+                    <li>Give my first salary to my parents</li>
+                    <li>Build a game room</li>
+                    <li>Attend a Charlie Puth concert</li>
+                    <li>Attend Psy's "Soaking Show"</li>
+                    <li>Read 50+ books during university</li>
+                    <li>Get a driver's license</li>
+                    <li>Own a house</li>
+                    <li>Own a car</li>
+                </ul>
+
+                <p class="category-title">🤔 Worth Considering (Need More Thought/Resources)</p>
+                <ul>
+                    <li>Go bungee jumping</li>
+                    <li>Learn surfing</li>
+                    <li>Compose a ~3-minute song</li>
+                    <li>Get a safeguard (lifeguard) certificate</li>
+                    <li>Travel to Europe</li>
+                    <li>Write and publish an autobiography</li>
+                    <li>Join a boxing gym</li>
+                    <li>Learn drums properly</li>
+                    <li>Join a major-related club and become an executive</li>
+                    <li>Learn speed reading</li>
+                    <li>Travel abroad alone with my girlfriend</li>
+                    <li>Ride in a sports car</li>
+                    <li>Go on a package trip with friends</li>
+                    <li>Appear in a movie</li>
+                    <li>Learn archery</li>
+                    <li>Watch the League of Legends World Championship live</li>
+                    <li>Visit the pyramids and Sphinx in Egypt</li>
+                    <li>Get celebrity-style makeup in Cheongdam</li>
+                    <li>Do a body profile photoshoot</li>
+                    <li>Get a Japanese cuisine chef certification</li>
+                    <li>Release KakaoTalk emojis</li>
+                    <li>Install a karaoke room at home</li>
+                    <li>Start a book club</li>
+                    <li>Stay at a guesthouse</li>
+                    <li>Get sponsored on Instagram</li>
+                    <li>Receive an expensive gift</li>
+                </ul>
+
+                <p class="category-title">🔥 Interesting but Needs More Motivation/Info</p>
+                <ul>
+                    <li>Travel alone to the U.S.</li>
+                    <li>Reach 10,000 followers through streaming/content creation</li>
+                    <li>Start a band</li>
+                    <li>Learn a European language</li>
+                    <li>Visit my ancestral hometown</li>
+                    <li>Work at Everland (Amazon ride job)</li>
+                    <li>Learn calligraphy</li>
+                    <li>Ring the "Golden Bell" at a bar</li>
+                    <li>Work on a crab fishing boat</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="prompt-line">
+            <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~</span><span class="arrow">➜</span> <span class="cmd">cd ..</span>
+        </div>
+        <div class="output">
+            <a href="index.html">>> Return to Main System (Home)</a>
+        </div>
+
+        <div class="guest-prompt">
+            <span style="color: #a3be8c;">guest@uoft</span> <span class="arrow">~ →</span> Type help...<span class="cursor"></span>
+        </div>
+
+        <footer>
+            &copy; 2025 sungjun lee's bucketlist
+        </footer>
+    </div>
+</body>
+</html>
