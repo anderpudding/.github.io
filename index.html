@@ -12,6 +12,7 @@
             --text-color: #C0CAF5;
             --header-color: #FF9E64;
             --sub-header-color: #565F89;
+            --st-color:#BB9AF7;
             --prompt-user: #7DCFFF;
             --prompt-at: #b2d3d8;
             --prompt-host: #9AA5CE;
@@ -69,7 +70,7 @@
         .host { color: var(--prompt-host); }
         .path { color: var(--prompt-path); }
         .arrow { color: var(--prompt-arrow); margin: 0 5px; }
-        .command { color: var(--text-color); }
+        .command { color: var(--st-color); }
 
         .content {
             margin-bottom: 20px;
@@ -105,6 +106,10 @@
             color: var(--link-color);
             text-decoration: none;
             border-bottom: 1px dashed var(--link-color);
+        }
+
+        strong {
+            color: var(--st-color); font-weight: bold;
         }
 
         a:hover {
@@ -193,8 +198,8 @@
                 <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~</span><span class="arrow">➜</span> <span class="command">whoami</span>
             </div>
             <div class="content">
-                <p>I'm <span class="highlight">Sungjun Lee (이성준) (李成俊)</span>.</p>
-                <p>I have finished 2rd Year in <span class="highlight">Combined Major in Computer Science and Mathematics (CMCM)</span> at <span class="highlight">University of British Columbia</span>.</p>
+                <p>I'm <strong>Lee (이성준) (李成俊)</strong>.</p>
+                <p>I have finished 2rd Year in <span class="highlight"><a href="https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-science/bachelor-science/mathematics#:~:text=Combined%20Major%20(1429)%3A%20Computer%20Science%20and%20Mathematics" target="_blank">Combined Major in Computer Science and Mathematics (CMCM)</a></span> at <span class="highlight">University of British Columbia</span>.</p>
                 <p>And now I am on my <span class="highlight">3rd Year in CMCM</span>.</p>
             </div>
         </div>
@@ -214,7 +219,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/links</span><span class="arrow">→</span> <span class="command">ls -F</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/links</span><span class="arrow">➜</span> <span class="command">ls -F</span>
             </div>
             <div class="links-grid">
                 <div class="link-item"><a href="#">About Me</a></div>
@@ -231,7 +236,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/life</span><span class="arrow">→</span> <span class="command">cat life_goals.md</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/life</span><span class="arrow">➜</span> <span class="command">cat life_goals.md</span>
             </div>
             <div class="content">
                 <p>Life Goal</p>
@@ -245,7 +250,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="arrow">~ →</span><span class="command">cat education_history.txt</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="arrow">~ ➜</span><span class="command">cat education_history.txt</span>
             </div>
             <div class="content">
                 <p>Kindergarten: 서울소망어린이집</p>
@@ -260,7 +265,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/work</span><span class="arrow">→</span> <span class="command">cat embedded.txt</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/work</span><span class="arrow">➜</span> <span class="command">cat embedded.txt</span>
             </div>
             <div class="content">
                 <p>Enjoying Embedded...</p>
@@ -278,7 +283,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/resources</span> <span class="arrow">→</span> <span class="command">ls -1</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/resources</span> <span class="arrow">➜</span> <span class="command">ls -1</span>
             </div>
             <div class="links-grid">
                 <div class="link-item"><a href="#">MCU list (Microcontroller)</a></div>
@@ -291,7 +296,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/life</span> <span class="arrow">→</span> <span class="command">python3 logic_puzzle.py</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="path">~/life</span> <span class="arrow">➜</span> <span class="command">python3 logic_puzzle.py</span>
             </div>
             <div class="puzzle-box">
                 <div class="puzzle-title">What is life?</div>
@@ -303,7 +308,7 @@
 
         <div class="section">
             <div class="prompt">
-                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="arrow">~ →</span> <span class="command">./contact_me.sh</span>
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span><span class="arrow">~ ➜</span> <span class="command">./contact_me.sh</span>
             </div>
             <a href="#" class="contact-link">>> CLICK HERE TO OPEN CONTACT FORM</a>
         </div>
