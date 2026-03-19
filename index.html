@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sungjun Lee</title>
+    <style>
+        :root {
+            --bg-color: #24283B;
+            --text-color: #C0CAF5;
+            --header-color: #FF9E64;
+            --sub-header-color: #565F89;
+            --prompt-user: #7DCFFF;
+            --prompt-at: #b2d3d8;
+            --prompt-host: #9AA5CE;
+            --prompt-path: #F7768E;
+            --prompt-arrow: #565F89;
+            --link-color: #9ECE6A;
+            --font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--header-color);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: var(--sub-header-color);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .prompt {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .user { color: var(--prompt-user); }
+        .at { color: var(--prompt-at); }
+        .host { color: var(--prompt-host); }
+        .path { color: var(--prompt-path); }
+        .arrow { color: var(--prompt-arrow); margin: 0 5px; }
+        .command { color: var(--text-color); }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            border-bottom: 1px dashed var(--sub-header-color);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+            margin-top: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .link-item::before {
+            content: "-> ";
+            color: var(--sub-header-color);
+            margin-right: 10px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link-color);
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 10px 0;
+        }
+
+        li::before {
+            content: "* ";
+            margin-right: 8px;
+        }
+
+        .puzzle-box {
+            background-color: var(--puzzle-bg);
+            border: 1px solid var(--puzzle-border);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        .puzzle-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .puzzle-content {
+            font-size: 0.95rem;
+            color: var(--sub-header-color);
+        }
+
+        .contact-link {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .guest-prompt {
+            margin-top: 40px;
+            color: #a3be8c; /* Greenish for guest prompt */
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: var(--text-color);
+            vertical-align: middle;
+            margin-left: 5px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--puzzle-border);
+            color: var(--sub-header-color);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sungjun Lee</h1>
+            <div class="subtitle">Combined Major in Computer Science and Mathematics @ UBC</div>
+        </header>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~</span> <span class="arrow">➜</span> <span class="command">whoami</span>
+            </div>
+            <div class="content">
+                <p>I'm <span class="highlight">Sungjun Lee (이성준) (李成俊)</span>.</p>
+                <p>I have finished 2rd Year in <span class="highlight">Combined Major in Computer Science and Mathematics (CMCM)</span> at <span class="highlight">University of British Columbia</span>.</p>
+                <p>And now I am on my <span class="highlight">3rd Year in CMCM</span>.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">uoft</span> <span class="path">~</span> <span class="arrow">➜</span> <span class="command">cat about_myself.txt</span>
+            </div>
+            <div class="content">
+                <p>About Myself...</p>
+                <p>Of course, these can't describe myself entirely, but here are some of the things about me.</p>
+                <div class="fact-box">
+                    <p>Fun fact: the screenwriter (<span class="highlight">곽본기</span>) of <span class="highlight">Little Forest</span> asked to use my name, <span class="highlight">재하</span> (jaeha or jaehah based on how you translate into English), in the movie because he knew me from church. <a href="#">Little Forest on Wikipedia</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~/links</span> <span class="arrow">→</span> <span class="command">ls -F</span>
+            </div>
+            <div class="links-grid">
+                <div class="link-item"><a href="#">About Me</a></div>
+                <div class="link-item"><a href="#">Book Reviews</a></div>
+                <div class="link-item"><a href="#">League of Legends Stats</a></div>
+                <div class="link-item"><a href="#">Thought Dumps</a></div>
+                <div class="link-item"><a href="#">Courses that I am taking in UofT</a></div>
+                <div class="link-item"><a href="#">My Learning Strat</a></div>
+                <div class="link-item"><a href="#">Contact</a></div>
+                <div class="link-item"><a href="#">My Resume.pdf*</a></div>
+                <div class="link-item"><a href="#">My CV.pdf*</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~/life</span> <span class="arrow">→</span> <span class="command">cat life_goals.md</span>
+            </div>
+            <div class="content">
+                <p>Life Goal</p>
+                <p>I would like to do certain things which are not related my major...</p>
+                <ul>
+                    <li>I would like to publish a book that contains all my thoughts.</li>
+                    <li>I would like to write a movie script based on my experiences and life. (I would like to record my life journey in somewhat way.)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="arrow">~ →</span> <span class="command">cat education_history.txt</span>
+            </div>
+            <div class="content">
+                <p>Kindergarten: 서울양진초등학교 병설 유치원</p>
+                <p>Elementary School: <a href="https://seoulbeodle.sen.es.kr/">서울버들초등학교</a></p>>
+                <p>Elementary School: <a href="https://school.setagaya.ed.jp/mawa">世田谷区立松沢小学校</a></p>>
+                <p>Middle School: <a href="https://www.ariake.kaetsu.ac.jp/">嘉悦学園かえつ有明中学校</a></p>
+                <p>High School: <a href="https://yale.abbyschools.ca/">Yale Secondary School</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~/work</span> <span class="arrow">→</span> <span class="command">cat embedded.txt</span>
+            </div>
+            <div class="content">
+                <p>Enjoying Embedded...</p>
+                <p>I am currently working on embedded system and RTOS at the lab of FRL in UofT.</p>
+                <p>Also, I co-founded a design team called UofT Wearable in UofT.</p>
+                <p>Our first project is a Wearable ECG (electrocardiogram) sensor.</p>
+                <p>There are three sub-teams in UofT Wearable:</p>
+                <ul>
+                    <li>Embedded Electronics</li>
+                    <li>Companion Software</li>
+                    <li>Form and Function</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~/resources</span> <span class="arrow">→</span> <span class="command">ls -1</span>
+            </div>
+            <div class="links-grid">
+                <div class="link-item"><a href="#">MCU list (Microcontroller)</a></div>
+                <div class="link-item"><a href="#">Background of MCU</a></div>
+                <div class="link-item"><a href="#">Summer Research (to be updated)</a></div>
+                <div class="link-item"><a href="#">Self-Learning Quantum Computing</a></div>
+                <div class="link-item"><a href="#">Q-News (Quantum Computing News)</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="path">~/life</span> <span class="arrow">→</span> <span class="command">python3 logic_puzzle.py</span>
+            </div>
+            <div class="puzzle-box">
+                <div class="puzzle-title">What is life?</div>
+                <div class="puzzle-content">
+                    11 + 13 + 17 = 41 19 + 23 = 42 = 인생 = 人生 = Li42 41 + 人生 = 83 # If you can guess my logic correctly, contact me, # and I'll buy you a cup of coffee. (if you got that right)
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="prompt">
+                <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span> <span class="arrow">~ →</span> <span class="command">./contact_me.sh</span>
+            </div>
+            <a href="#" class="contact-link">>> CLICK HERE TO OPEN CONTACT FORM</a>
+        </div>
+
+        <div class="guest-prompt">
+            <span style="color: #a3be8c;">guest@uoft</span> <span class="arrow">~ →</span> Type help...<span class="cursor"></span>
+        </div>
+
+        <footer>
+            &copy; 2026 sungjun lee's system
+        </footer>
+    </div>
+</body>
+</html>
