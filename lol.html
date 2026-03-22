@@ -332,6 +332,9 @@
                         <div class="value" id="queue">-</div>
                     </div>
                 </div>
+                <div class="tiny" style="margin-top:10px;">
+                    Last updated: <span id="lastUpdated">-</span>
+                </div>
             </div>
         </div>
 
@@ -359,6 +362,9 @@
                         <div class="label">Average KDA</div>
                         <div class="value" id="avgKDA">-</div>
                     </div>
+                </div>
+                <div class="tiny" style="margin-top:10px;">
+                    Last updated: <span id="lastUpdated">-</span>
                 </div>
             </div>
         </div>
@@ -501,29 +507,50 @@
             34: "Challenger"
         };
 
+        const SNAPSHOT_URL = "/data/lol_snapshot.json";
+
         async function loadData() {
             const loadingBox = document.getElementById("loadingBox");
             const errorBox = document.getElementById("errorBox");
 
             try {
+                // 1️⃣ Try Riot API first
                 const response = await fetch(WORKER_URL);
-                const data = await response.json();
 
                 if (!response.ok) {
-                    throw new Error(data.error || "Failed to load Riot data");
+                    throw new Error("Live API failed");
                 }
 
+                const data = await response.json();
+
                 renderPage(data);
-                loadingBox.style.display = "none";
-            } catch (error) {
-                renderPage(fallbackData);
-                loadingBox.textContent = "Live Riot API data could not be loaded. Showing manual rank history only.";
-                errorBox.style.display = "block";
-                errorBox.textContent = error.message;
+                loadingBox.textContent = "Live data loaded";
+
+            } catch (err) {
+                console.warn("Live API failed → using snapshot");
+
+                try {
+                    // 2️⃣ fallback to snapshot
+                    const snapshotRes = await fetch(SNAPSHOT_URL);
+                    const snapshotData = await snapshotRes.json();
+
+                    renderPage(snapshotData);
+
+                    loadingBox.textContent = "Showing cached snapshot data";
+                    errorBox.style.display = "block";
+                    errorBox.textContent = "Live Riot API unavailable (expired key or rate limit)";
+
+                } catch (snapshotErr) {
+                    loadingBox.textContent = "Failed to load any data";
+                    errorBox.style.display = "block";
+                    errorBox.textContent = "Snapshot missing or broken";
+                }
             }
         }
 
         function renderPage(data) {
+            document.getElementById("lastUpdated").textContent =
+                data.meta?.lastUpdated || "Live";
             document.getElementById("riotId").textContent = data.profile.riotId || "-";
             document.getElementById("level").textContent = data.profile.level || "-";
             document.getElementById("server").textContent = data.profile.server || "-";
