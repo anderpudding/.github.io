@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHFWCNC90P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CHFWCNC90P');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Strategy | Sungjun Lee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap');
+
+        :root {
+            --bg-color: #24283B;
+            --text-color: #C0CAF5;
+            --comment-color: #565F89;
+
+            --user-color: #7DCFFF;
+            --host-color: #9AA5CE;
+            --path-color: #F7768E;
+            --cmd-color: #BB9AF7;
+
+            --link-color: #9ECE6A;
+            --link-hover: rgba(158, 206, 106, 0.12);
+            --accent-color: #FF9E64;
+
+            --font-stack: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            --font-header: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            margin: 0;
+            padding: 50px 20px;
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding-bottom: 120px;
+        }
+
+        .main-header {
+            font-family: var(--font-header);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0 0 10px 0;
+        }
+
+        .sub-header {
+            font-family: var(--font-header);
+            color: var(--comment-color);
+            font-size: 1.1rem;
+            margin: 0 0 50px 0;
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link-color);
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            background-color: var(--link-hover);
+        }
+
+        strong {
+            color: var(--cmd-color);
+            font-weight: bold;
+        }
+
+        .prompt-line {
+            margin-top: 40px;
+            margin-bottom: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .p-user { color: var(--user-color); font-weight: bold; }
+        .p-at { color: #b2d3d8; }
+        .p-host { color: var(--host-color); font-weight: bold; }
+        .p-path { color: var(--path-color); margin-left: 5px; }
+        .p-symbol { color: var(--comment-color); margin: 0 10px; }
+        .cmd { color: var(--cmd-color); font-weight: bold; }
+
+        .output {
+            color: var(--text-color);
+            margin-left: 0;
+            white-space: normal;
+            padding-left: 2px;
+        }
+
+        ol, ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li::marker {
+            color: var(--host-color);
+        }
+
+        .emphasis-block {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            font-style: italic;
+            color: var(--comment-color);
+            margin: 20px 0;
+        }
+
+        #terminal-input {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            font-size: 16px;
+            outline: none;
+            flex-grow: 1;
+            min-width: 50px;
+        }
+
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid rgba(154, 165, 206, 0.35);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: var(--comment-color);
+            font-family: var(--font-header);
+        }
+
+        @media (max-width: 600px) {
+            .main-header { font-size: 2rem; }
+            .prompt-line { margin-top: 30px; }
+            body { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="main-header">Learning Strategy</h1>
+    <div class="sub-header">Optimization, Scientific Thinking & My Own Study Method</div>
+
+    <div class="prompt-line">
+        <span class="p-user">sungjun</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path">~/learning</span><span class="p-symbol">➜</span>
+        <span class="cmd">cat philosophy.txt</span>
+    </div>
+    <div class="output">
+        <div class="emphasis-block">
+            Learning, to me, is a process of optimization through reconstruction.
+        </div>
+        <p>
+            Inspired by scientific thinking and the <strong>Feynman Technique</strong>, I do not study by simply rereading material until it feels familiar.
+        </p>
+        <p>
+            Instead, I rebuild concepts in my own words, test whether I can explain them clearly, and use moments of confusion as signals of where my understanding is weak.
+        </p>
+        <p>
+            When I encounter a difficult idea, I isolate it, return to it deliberately, and refine it until it becomes something I can truly use.
+        </p>
+        <p>
+            In this way, I treat studying less as memorization and more as <strong>debugging thought</strong>—a cycle of building, testing, correcting, and improving.
+        </p>
+        <p>
+            My learning strategy is not about spending the most time, but about finding the most effective path to real understanding.
+        </p>
+    </div>
+
+    <div class="prompt-line">
+        <span class="p-user">sungjun</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path">~/learning</span><span class="p-symbol">➜</span>
+        <span class="cmd">cat scientist_methods.md</span>
+    </div>
+    <div class="output">
+        The study methods that influence me most are rooted in how scientists think:
+        <ol>
+            <li><strong>Optimization:</strong> finding the most effective path to understanding under limited time and energy.</li>
+            <li><strong>Feynman Technique:</strong> testing real understanding by explaining ideas in simple and clear language.</li>
+            <li><strong>Scientific Iteration:</strong> treating confusion and mistakes not as failure, but as feedback for improvement.</li>
+        </ol>
+        <p>
+            These approaches matter to me because they prioritize <strong>clarity</strong>, <strong>structure</strong>, and <strong>durable understanding</strong> over superficial familiarity.
+        </p>
+    </div>
+
+    <div class="prompt-line">
+        <span class="p-user">sungjun</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path">~/learning</span><span class="p-symbol">➜</span>
+        <span class="cmd">cat fold_and_resolve.md</span>
+    </div>
+    <div class="output">
+        Below is the study method that feels most natural to me, which I think of as <strong>Fold and Resolve</strong>:
+        <ul>
+            <li><strong>First:</strong> I start by writing concepts down by hand so I can actively reconstruct what I am learning rather than just copy it.</li>
+            <li><strong>Second:</strong> I explain the idea to myself in simple language, almost as if I were teaching someone else.</li>
+            <li><strong>Third:</strong> If I get stuck on a proof, derivation, algorithm, or concept, I spend time trying to fully understand it on my own before moving on.</li>
+            <li><strong>Fourth:</strong> If I still cannot resolve it, I mark it as unfinished and return to it later with more focus. <span style="color: var(--cmd-color);">The weak point becomes the target of my next review.</span></li>
+            <li><strong>Fifth:</strong> After reviewing everything once, I revisit the difficult parts, resolve them, and then rebuild the topic again with a clearer structure.</li>
+        </ul>
+        <p style="margin-top: 20px;">
+            For me, learning is not the passive accumulation of information, but an active cycle of testing, refining, and strengthening understanding until it becomes clear, connected, and usable.
+        </p>
+    </div>
+
+    <div class="prompt-line">
+        <span class="p-user">sungjun</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path">~/learning</span><span class="p-symbol">➜</span>
+        <span class="cmd">cd ..</span>
+    </div>
+    <div class="output">
+        <a href="index.html">>> Return to Main System (Home)</a>
+    </div>
+
+    <div id="dynamic-terminal"></div>
+
+    <div class="prompt-line">
+        <span class="p-user">guest</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path" id="current-path-display">~/learning</span><span class="p-symbol">➜</span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type help...">
+    </div>
+
+    <footer>
+        &copy; 2026 sungjun lee's system
+    </footer>
+
+</div>
+
+<script>
+    const input = document.getElementById('terminal-input');
+    const terminalDiv = document.getElementById('dynamic-terminal');
+    let currentPath = "~/learning";
+
+    function sanitize(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const rawInput = input.value;
+            const safeInput = sanitize(rawInput);
+            const cmd = safeInput.trim().toLowerCase().split(" ")[0];
+
+            const promptHTML = `<div class="prompt-line">
+                <span class="p-user">guest</span><span class="p-at">@</span><span class="p-host">ubc</span><span class="p-path">${currentPath}</span><span class="p-symbol">➜</span>
+                <span class="cmd">${safeInput}</span>
+            </div>`;
+
+            terminalDiv.insertAdjacentHTML('beforeend', promptHTML);
+
+            let outputText = "";
+
+            if (cmd === 'ls') {
+                outputText = "philosophy.txt  scientist_methods.md  fold_and_resolve.md";
+            } else if (cmd === 'cd') {
+                const arg = safeInput.trim().split(" ")[1];
+                if (arg === '..' || arg === '~') {
+                    window.location.href = "index.html";
+                    outputText = "Navigating...";
+                } else {
+                    outputText = "cd: permission denied (limited shell)";
+                }
+            } else if (cmd === 'help') {
+                outputText = "Available commands: ls, cd .., clear";
+            } else if (cmd === 'clear') {
+                terminalDiv.innerHTML = "";
+            } else if (cmd !== "") {
+                outputText = `command not found: ${cmd}`;
+            }
+
+            if (cmd !== 'clear' && outputText) {
+                terminalDiv.insertAdjacentHTML('beforeend', `<div class="output">${outputText}</div>`);
+            }
+
+            input.value = "";
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    });
+</script>
+
+</body>
+</html>
