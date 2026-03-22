@@ -234,46 +234,30 @@
 <body>
     <div class="container">
         <header>
-            <h1>UBC Courses</h1>
-            <div class="subtitle">Course History by Session and Year</div>
+            <h1>Courses</h1>
+            <div class="subtitle">Academic Curriculum @ UBC</div>
         </header>
 
         <div class="section">
             <div class="prompt">
                 <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span>
-                <span class="path">~/education/courses</span><span class="arrow">➜</span><span class="command">./render_course_chart.sh</span>
+                <span class="path">~/education/courses</span><span class="arrow">➜</span><span class="command">cat notes.txt</span>
             </div>
 
-            <div class="panel">
-                <div class="summary-grid">
-                    <div class="summary-card">
-                        <div class="summary-label">Program</div>
-                        <div class="summary-value">CMCM</div>
-                        <div class="summary-sub">Combined Major in Computer Science and Mathematics</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-label">Current Standing</div>
-                        <div class="summary-value">3rd Year</div>
-                        <div class="summary-sub">Science → CMCM track</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-label">Terms Listed</div>
-                        <div class="summary-value">8</div>
-                        <div class="summary-sub">From Science 1F to CMCM 3W</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-label">Course Entries</div>
-                        <div class="summary-value">37</div>
-                        <div class="summary-sub">Including current / planned terms shown here</div>
-                    </div>
-                </div>
+            <div class="content">
+                <span style="color: var(--sub-header-color);"># SCHEDULE NOTES:</span><br>
+                This schedule shows the courses for my science degree with a combined major in computer science and mathematics major.<br>
+                It lists both required and elective courses I have taken from first through third year.<br><br>
+                <span style="color: var(--sub-header-color);"># DISCLAIMER:</span><br>
+                I haven't decided on fourth-year courses yet since it may change as my interests evolve.<br>
+                <strong>Current Focus:</strong> Algorithms, theory, and machine learning.<br>
             </div>
         </div>
 
         <div class="section">
             <div class="prompt">
                 <span class="user">sungjun</span><span class="at">@</span><span class="host">ubc</span>
-                <span class="path">~/education/courses</span><span class="arrow">➜</span><span class="command">column -t ubc_course_list.csv</span>
+                <span class="path">~/education/courses</span><span class="arrow">➜</span><span class="command">column -t course_list.csv</span>
             </div>
 
             <div class="panel">
@@ -381,10 +365,6 @@
                             <div class="course-item empty">.</div>
                         </div>
                     </div>
-                </div>
-
-                <div class="note">
-                    Note: This page is styled as a terminal-like course matrix to match the rest of the portfolio.
                 </div>
             </div>
         </div>
