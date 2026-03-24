@@ -401,9 +401,6 @@
                         <div class="value" id="avgKDA">-</div>
                     </div>
                 </div>
-                <div class="tiny" style="margin-top:10px;">
-                    Last updated: <span id="lastUpdated">-</span>
-                </div>
             </div>
         </div>
 
@@ -547,7 +544,7 @@
             34: "Challenger"
         };
 
-        const SNAPSHOT_URL = "/lol_snapshot.json";
+        const SNAPSHOT_URL = "/data/lol_snapshot.json";
 
         async function loadData() {
             const loadingBox = document.getElementById("loadingBox");
@@ -593,21 +590,29 @@
         }
 
         function renderPage(data) {
-            document.getElementById("lastUpdated").textContent =
-                data.meta?.lastUpdated || "Live";
-            document.getElementById("riotId").textContent = data.profile.riotId || "-";
-            document.getElementById("level").textContent = data.profile.level || "-";
-            document.getElementById("server").textContent = data.profile.server || "-";
-            document.getElementById("queue").textContent = data.profile.queue || "-";
+            const lastUpdatedEl = document.getElementById("lastUpdated");
+            if (lastUpdatedEl) {
+                lastUpdatedEl.textContent =
+                    data.meta?.lastUpdated || data.meta?.generatedAt || "Live";
+            }
 
-            document.getElementById("currentRank").textContent = data.overview.currentRank || "-";
-            document.getElementById("seasonWinRate").textContent = data.overview.seasonWinRate || "-";
-            document.getElementById("recentGames").textContent = data.overview.recentGames || "-";
-            document.getElementById("avgKDA").textContent = data.overview.avgKDA || "-";
-            document.getElementById("winLossLine").textContent =
-                data.overview.wins !== undefined && data.overview.losses !== undefined
-                    ? `${data.overview.wins}W ${data.overview.losses}L`
-                    : "-";
+            document.getElementById("riotId").textContent = data.profile?.riotId || "-";
+            document.getElementById("level").textContent = data.profile?.level || "-";
+            document.getElementById("server").textContent = data.profile?.server || "-";
+            document.getElementById("queue").textContent = data.profile?.queue || "-";
+
+            document.getElementById("currentRank").textContent = data.overview?.currentRank || "-";
+            document.getElementById("seasonWinRate").textContent = data.overview?.seasonWinRate || "-";
+            document.getElementById("recentGames").textContent = data.overview?.recentGames || "-";
+            document.getElementById("avgKDA").textContent = data.overview?.avgKDA || "-";
+
+            const winLossLineEl = document.getElementById("winLossLine");
+            if (winLossLineEl) {
+                winLossLineEl.textContent =
+                    data.overview?.wins !== undefined && data.overview?.losses !== undefined
+                        ? `${data.overview.wins}W ${data.overview.losses}L`
+                        : "-";
+            }
 
             renderChampionTable(data.topChampions || []);
             renderRadarChart(data.topChampions || []);
