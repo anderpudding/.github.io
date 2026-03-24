@@ -643,7 +643,7 @@
                             <img class="champ-icon" src="${champ.icon}" alt="${champ.champion}">
                             <div>
                                 <div>${champ.champion}</div>
-                                <div class="tiny">${champ.details.csPerMin} CS/min</div>
+                                <div class="tiny">${champ.details?.csPerMin ?? "-"} CS/min</div>
                             </div>
                         </div>
                     </td>
