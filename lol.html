@@ -554,37 +554,40 @@
             const errorBox = document.getElementById("errorBox");
 
             try {
-                // 1️⃣ Try Riot API first
                 const response = await fetch(WORKER_URL);
 
                 if (!response.ok) {
-                    throw new Error("Live API failed");
+                    throw new Error(`Live API failed: ${response.status}`);
                 }
 
                 const data = await response.json();
-
                 renderPage(data);
-                loadingBox.textContent = "Live data loaded";
 
-            } catch (err) {
-                console.warn("Live API failed → using snapshot");
+                loadingBox.textContent = "Live data loaded";
+                errorBox.style.display = "none";
+            } catch (liveErr) {
+                console.warn("Live API failed:", liveErr);
 
                 try {
-                    // 2️⃣ fallback to snapshot
                     const snapshotRes = await fetch(SNAPSHOT_URL);
+
+                    if (!snapshotRes.ok) {
+                        throw new Error(`Snapshot fetch failed: ${snapshotRes.status}`);
+                    }
+
                     const snapshotData = await snapshotRes.json();
+                    console.log("Snapshot loaded:", snapshotData);
 
                     renderPage(snapshotData);
 
                     loadingBox.textContent = "Showing cached snapshot data";
                     errorBox.style.display = "block";
                     errorBox.textContent = "Live Riot API unavailable (expired key or rate limit)";
-
                 } catch (snapshotErr) {
-                    console.error("Snapshot load failed:", snapshotErr);
+                    console.error("Snapshot error:", snapshotErr);
                     loadingBox.textContent = "Failed to load any data";
                     errorBox.style.display = "block";
-                    errorBox.textContent = `Snapshot missing or broken: ${snapshotErr.message}`;
+                    errorBox.textContent = `Snapshot error: ${snapshotErr.message}`;
                 }
             }
         }
